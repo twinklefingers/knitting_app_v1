@@ -1,11 +1,17 @@
 $(document).ready(function() {
     // getData();
-    //
-    // //button listeners
+    $('.canvas2').hide();
+    //button listeners
+    $('.click4grid').on('click', showGrid);
     // $('#submitTestData').on("click", postData);
     // $('#dataTable').on("click", ".delete", deleteData);
     // $('#dataTable').on("click", ".update", updateData);
 });
+
+function showGrid() {
+    $('.canvas2').toggle();
+
+}
 
 // function deleteData() {
 //     var testdataID = $(this).attr("id"); //this = #dataTable, .delete
