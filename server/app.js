@@ -1,18 +1,3 @@
-//Build Template
-
-//TODO: run this in postgres
-// CREATE TABLE testbase (
-//     id SERIAL PRIMARY KEY,
-//     item_name character varying(255),
-//     item_amount integer
-// );
-
-//TODO: change json title, desc, etc.
-//TODO: npm install dependencies
-//TODO: check /routes/testRoute.js for additional settup
-
-
-
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
