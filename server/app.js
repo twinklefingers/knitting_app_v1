@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({
 
 //modules
 var testModule = require("./modules/testModule.js");
+console.log("Hi there! :) ");
 console.log(testModule.test("app.js: testing module connection"));
 
 

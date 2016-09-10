@@ -8,7 +8,6 @@ var chosenColor = colorBlack;
 function setup() {
     createCanvas(500, 500);
     background(255, 255, 255); // white canvas
-
 }
 
 function draw() {

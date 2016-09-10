@@ -2,6 +2,7 @@ canvas {
     border: 4px dotted black;
     position: absolute;
     margin: 0 auto;
+    margin-left: 10px;
 }
 
 .canvas1 {
@@ -12,7 +13,7 @@ canvas {
     z-index: 2;
 }
 
-button {
+.click4grid {
     margin-top: 20px;
     margin-right: 20px;
     position: absolute;
@@ -21,8 +22,20 @@ button {
     font-size: 50px;
 }
 
-p {
+.pixel {
+    border: 1px solid black;
+    float: left;
+    height: 25px;
+    width: 25px;
+}
+
+#chooseGrid {
+    width: 400px;
     float: right;
-    width: 40%;
-    padding-top: 200px;
+    margin-top: 120px;
+}
+
+#gridCanvas {
+    float: right bottom;
+    width: 600px;
 }

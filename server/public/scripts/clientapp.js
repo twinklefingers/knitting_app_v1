@@ -1,19 +1,79 @@
 $(document).ready(function() {
+    console.log('jQuery linked');
+
     // getData();
-    $('.canvas2').hide();
-    //button listeners
-    $('.click4grid').on('click', showGrid);
-    // $('#submitTestData').on("click", postData);
+    $('#chooseGrid').hide();
+    // //button listeners
+    $('.click4grid').on('click', toggleOptions);
+    // // $('#submitTestData').on("click", postData);
     // $('#dataTable').on("click", ".delete", deleteData);
     // $('#dataTable').on("click", ".update", updateData);
-});
+}); // end doc ready
 
-function showGrid() {
-    $('.canvas2').toggle();
+// shows or hides form to gather grid info
+function toggleOptions() {
+    $('#chooseGrid').toggle();
+    console.log('toggleOptions() triggered');
 
 }
 
-// function deleteData() {
+gridCanvas = $('#gridCanvas');
+
+
+
+
+// var Grid = {
+//     sts: $('#gridStitches').attr('value'),
+//     rows: rows,
+//     horizontal: horizontal,
+//     vertical: vertical
+// };
+
+
+// captures user custom grid specifications
+function submitGridSpecs() {
+    console.log('submitGridSpecs() triggered');
+    event.preventDefault();
+
+    // jquery method to get value of user inputs 1
+    var sts = $('#gridStitches').val();
+    console.log("sts: ", sts); // worked!
+    var rows = $('#gridRows').val();
+    console.log("rows: ", rows);
+    var horizontal = $('#horizontalGauge').val();
+    console.log("horizontal: ", horizontal);
+    var vertical = $('#verticalGauge').val();
+    console.log("vertical: ", vertical);
+
+    // // jQuery method to get values of user input 2
+    // var sts = $('#gridStitches').attr('value');
+    // console.log("sts: ", sts); // no worky :( -- index.html input elements have no 'value' attribute...
+    // var rows = $('#gridRows').attr('value');
+    // var horizontal = $('#horizontalGauge').attr('value');
+    // var vertical = $('#verticalGauge').attr('value');
+
+    // // straight js  method to get values of user input
+    // var sts = document.getElementById('gridStitches').value;
+    // console.log("sts: ", sts); // worked!
+
+
+    newGrid(sts); // must be placed after var assignment
+}
+
+// uses captured data and appends to DOM
+function newGrid(sts) {
+    console.log('newGrid() triggered');
+    console.log("newGrid() sts: ", sts);
+    gridCanvas.innerHTML = '';
+    // draw
+    for (i = 1; i <= sts; i++) {
+        $('#gridCanvas').append("<div class='pixel'>" + i + "</div>");
+        console.log('div created');
+    }
+
+}
+
+// // function deleteData() {
 //     var testdataID = $(this).attr("id"); //this = #dataTable, .delete
 //
 //     $.ajax({
@@ -148,4 +208,6 @@ function showGrid() {
 //         $header.append($input);
 //         $('#dataTable').append($header);
 //     });
+// }
+
 // }
