@@ -30,22 +30,32 @@
 
         <h2>Please Choose Grid Size:</h2>
         <label for="columns">Stitches:</label>
-        <input type="number" min="1" max="" size="5" id="gridStitches" name="gridStitches" />
+        <input type="number" min="1" max="" id="gridStitches" name="gridStitches" />
         <br />
         <label for="first_name">Rows:</label>
-        <input type="number" min="1" max="" size="5" id="gridRows" name="gridRows" />
+        <input type="number" min="1" max="" id="gridRows" name="gridRows" />
 
         <h2>Gauge:</h2>
         <label for="horizontal">Horizontal:</label>
-        <input type="number" min="1" max="" size="5" id="horizontalGauge" name="horizontalGauge" />
+        <input type="number" min="1" max="" id="horizontalGauge" name="horizontalGauge" />
         <br />
         <label for="vertical">Vertical:</label>
-        <input type="number" min="1" max="" size="5" id="verticalGauge" name="verticalGauge" />
+        <input type="number" min="1" max="" id="verticalGauge" name="verticalGauge" />
 
         <button onclick="submitGridSpecs()">Submit</button>
     </form>
 
-    <div id="gridCanvas"></div>
+    <ul id="colorPalette">
+        <li id="color" class="black" onclick="colorGrid('black')">Black</li>
+        <li id="color" class="red" onclick="colorGrid('red')">Red</li>
+        <li id="color" class="white" onclick="colorGrid('white')">White</li>
+    </ul>
+
+    <div id="gridCanvas">
+
+        <!-- grid is appended here based on user input -->
+
+    </div>
 
 </body>
 
