@@ -13,11 +13,15 @@ $(document).ready(function() {
     // $('#dataTable').on("click", ".update", updateData);
 }); // end doc ready
 
-
-
+function mousedown() {
+    $("#gridCanvas").children().mousedown(function() {
+        $(this).css("background-color: ", pickedColor);
+        console.log("mousedown activated!!")
+    });
+}
 //////////////////////////////////////////////////////////////////////////////////////
 //                                                                                  //
-//                                  Variables                                       //
+//                              Global Variables                                    //
 //                                                                                  //
 //////////////////////////////////////////////////////////////////////////////////////
 var pickedColor = "rgb(0, 0, 0)";
@@ -75,10 +79,9 @@ function newGrid(Grid) {
     console.log("newGrid() sts: ", Grid.sts);
     // draw
     for (i = 1; i <= Grid.sts; i++) {
-        $('#gridCanvas').append("<div class='pixel' id='pixel" + i + "' onclick='drawColor(this)'></div>");
+        $('#gridCanvas').append("<div class='pixel' id='pixel" + i + "' onmousedown='drawColor(this)'></div>");
         console.log('div created');
     }
-    //compare div px to container width and see if you can set col x rows that way?
 }
 
 
@@ -92,17 +95,14 @@ function newGrid(Grid) {
 function pickColor(color) {
     // check if a color has been selected, if not then use black
     if (color == "black") {
-        console.log("color black was selected");
         pickedColor = "rgb(0, 0, 0)";
         console.log("new pickedColor: ", pickedColor);
 
     } else if (color == "red") {
-        console.log("color red selected");
         pickedColor = 'rgb(255, 0, 0)';
         console.log("new pickedColor: ", pickedColor);
 
     } else if (color == "white") {
-        console.log("color white selected");
         pickedColor = "rgb(255, 255, 255)";
         console.log("new pickedColor: ", pickedColor);
 
@@ -121,28 +121,29 @@ function pickColor(color) {
 //                                                                                  //
 //////////////////////////////////////////////////////////////////////////////////////
 function drawColor(pixel) {
-    console.log("drawColor() ready for action");
-    var color = $('.pixel').css('backgroundColor');
-    var id = pixel.id;
+    // console.log("drawColor() ready for action");
+    // var color = $('.pixel').css('backgroundColor');
+    // var id = pixel.id;
+    //
+    // console.log("color: ", color);
+    // console.log("pixel id: ", id);
+    // console.log("pickedColor in drawColor: ", pickedColor);
 
-    console.log("color: ", color);
-    console.log("pixel id: ", id);
-    console.log("pickedColor in drawColor: ", pickedColor);
+    $(pixel).css('background-color', pickedColor); // lol just lol
 
-    if (pickedColor == "rgb(255, 255, 255)") {
-        console.log("drawing in color white");
-        $(pixel).css('background-color', 'rgb(255, 255, 255)');
-    } else if (pickedColor == "rgb(0, 0, 0)") {
-        console.log("drawing in color black");
-        $(pixel).css('background-color', 'rgb(0, 0, 0)');
-
-    } else if (pickedColor == "rgb(255, 0, 0)") {
-        console.log("drawing in color red");
-        // console.log("this: ", this); // no bueno
-        $(pixel).css('background-color', 'rgb(255, 0, 0)');
-    }
-
-
+    // if (pickedColor == "rgb(255, 255, 255)") {
+    //     console.log("drawing in color white");
+    //     $(pixel).css('background-color', 'rgb(255, 255, 255)');
+    //
+    // } else if (pickedColor == "rgb(0, 0, 0)") {
+    //     console.log("drawing in color black");
+    //     $(pixel).css('background-color', 'rgb(0, 0, 0)');
+    //
+    // } else if (pickedColor == "rgb(255, 0, 0)") {
+    //     console.log("drawing in color red");
+    //     // console.log("this: ", this); // no bueno
+    //     $(pixel).css('background-color', 'rgb(255, 0, 0)');
+    // }
 }
 
 
