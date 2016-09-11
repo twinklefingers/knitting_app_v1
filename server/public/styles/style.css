@@ -9,13 +9,15 @@ canvas {
     margin-left: 10px;
 }
 
+
+/*
 .canvas1 {
     z-index: 1;
 }
 
 .canvas2 {
     z-index: 2;
-}
+}*/
 
 .click4grid {
     margin-top: 20px;
@@ -26,13 +28,32 @@ canvas {
     font-size: 50px;
 }
 
-.pixel {
-    border: 1px solid black;
+.pixelRow {
+    border: 1px solid green;
+    width: 25px;
+    margin: 0;
     float: left;
+    display: inline-block;
+    /*overflow-x: scroll;*/
+    /*height: 30px;*/
+}
+
+.pixelCol {
+    float: left;
+    display: inline-block;
+    border: 1px solid yellow;
+}
+
+.pixel {
+    margin: 0;
+    border: 1px solid black;
+    /*float: top;*/
+    /*vertical-align: top;*/
     height: 25px;
     width: 25px;
     background-color: white;
-    white-space: nowrap;
+    /*display: inline-block;*/
+    /*white-space: nowrap;*/
     /*position: absolute;*/
     /*display: grid;*/
 }
@@ -58,8 +79,8 @@ canvas {
 #gridCanvas {
     width: 600px;
     height: 190px;
-    overflow-x: scroll;
-    white-space: nowrap;
+    overflow: auto;
+    /*white-space: nowrap;*/
     border: 3px solid magenta;
 }
 
@@ -103,3 +124,5 @@ canvas {
     white-space: nowrap;
     border: 3px solid magenta;
 }*/
+
+*/

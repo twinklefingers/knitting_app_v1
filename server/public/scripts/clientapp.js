@@ -76,15 +76,32 @@ function submitGridSpecs() {
 //////////////////////////////////////////////////////////////////////////////////////
 function newGrid(Grid) {
     console.log('newGrid() triggered');
-    console.log("newGrid() sts: ", Grid.sts);
+    console.log("newGrid() Grid: ", Grid);
     // draw
-    for (i = 1; i <= Grid.sts; i++) {
-        $('#gridCanvas').append("<div class='pixel' id='pixel" + i + "' onmousedown='drawColor(this)'></div>");
-        console.log('div created');
+    var i = 1;
+    var j = 1;
+    // var newRow = function() {
+    //     $('#gridCanvas').append("<div class='pixelRow' id='pixelRow" + i + "'></div>");
+    // };
+    // logic to establish # of columns containing 1 div each
+    var newCol = function() {
+        $('#gridCanvas').append("<div class='pixelCol' id='pixelCol" + j + "'><div class='pixel' id='pixel" + j + "'onmousedown='drawColor(this)'></div></div>");
+    };
+
+    for (j; j <= Grid.sts; j++) {
+        newCol();
+    }
+
+    // this should add divs to each column per the # of inputted rows
+    //each column
+    for (c = 1; c <= Grid.sts; c++) {
+        //each inputted row
+        for (i; i <= Grid.rows - 1; i++) {
+            $('.pixelCol').append("<div class='pixel' id='pixel" + i + "'onmousedown='drawColor(this)'></div>");
+            console.log('row st created');
+        }
     }
 }
-
-
 
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -130,6 +147,7 @@ function drawColor(pixel) {
     // console.log("pickedColor in drawColor: ", pickedColor);
 
     $(pixel).css('background-color', pickedColor); // lol just lol
+    console.log("You colored pixel: ", pixel.id);
 
     // if (pickedColor == "rgb(255, 255, 255)") {
     //     console.log("drawing in color white");
@@ -299,6 +317,4 @@ function drawColor(pixel) {
 //         $header.append($input);
 //         $('#dataTable').append($header);
 //     });
-// }
-
 // }
