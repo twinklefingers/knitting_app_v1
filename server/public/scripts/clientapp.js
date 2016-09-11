@@ -1,18 +1,10 @@
 $(document).ready(function() {
     console.log('jQuery linked'); // this is really important! :P
 
-    // getData();
     $('#chooseGrid').hide();
+
     // //button listeners
     $('.click4grid').on('click', toggleOptions);
-    // $('#gridCanvas').children().on('click', logPixel);
-
-
-    // $('#gridCanvas').children().click(function() {
-    //     var $id = $(this).attr('id');
-    //     console.log($id);
-
-    // });
 
 
 
@@ -21,78 +13,38 @@ $(document).ready(function() {
     // $('#dataTable').on("click", ".update", updateData);
 }); // end doc ready
 
-function colorGrid(color) {
-    // var color = $('#color').attr('class');
-
-    // check if a color has been selected, if not then black
-    // else if color has been selected, use that color
-    if (color == 'black') {
-        console.log("color black was selected");
-        pickedColor = "black";
-        console.log("new pickedColor: ", pickedColor);
-    } else
-    if (color == "red") {
-        console.log("color red selected");
-        pickedColor = 'red';
-        console.log("new pickedColor: ", pickedColor);
-    } else if (color == "white") {
-        console.log("color white selected");
-        pickedColor = "white";
-        console.log("new pickedColor: ", pickedColor);
-    }
-    return pickedColor;
-}
 
 
-function logPixel(pixel) {
-    // var id = $(this).attr('id');
-    var color = $('.pixel').css('backgroundColor');
-
-    var id = pixel.id;
-    // var color = pixel.style.backgroundColor;
-    console.log("color: ", color);
-    console.log("pixel id: ", id);
-    drawColor(color);
-
-    function drawColor(color) {
-        console.log("drawColor() ready for action");
-
-        // var white = 'rgb(255, 255, 255)';
-        // var red = 'rgb(255, 0, 0)';
-        // var black = 'rgb(0, 0, 0)';
-        // var pickedcolor = '';
-        // var color = $('#color').attr('class');
-        console.log("pickedColor in drawColor: ", pickedColor);
-
-        // check if a color has been selected, if not then black
-        // else if color has been selected, use that color
-        if (pickedColor == color) {
-            console.log("the color has already been written");
-        } else
-        if (color == "red") {
-            console.log("color red selected");
-        } else if (color == "white") {
-            console.log("color white selected");
-        }
-
-        // check if they are pressing down on the mouse..
-        // ..if true, then color background div w/ unique id
-
-    }
-
-}
+//////////////////////////////////////////////////////////////////////////////////////
+//                                                                                  //
+//                                  Variables                                       //
+//                                                                                  //
+//////////////////////////////////////////////////////////////////////////////////////
+var pickedColor = "rgb(0, 0, 0)";
+var gridCanvas = $('#gridCanvas');
 
 
-// shows or hides form to gather grid info
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+//                                                                                  //
+//                     Function which Shows/Hides Grid Form                         //
+//                                                                                  //
+//////////////////////////////////////////////////////////////////////////////////////
 function toggleOptions() {
     $('#chooseGrid').toggle();
     console.log('toggleOptions() triggered');
 
 }
 
-var gridCanvas = $('#gridCanvas');
 
-// captures user custom grid specifications
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+//                                                                                  //
+//                   Function to Capture Custom Grid Specs                          //
+//                                                                                  //
+//////////////////////////////////////////////////////////////////////////////////////
 function submitGridSpecs() {
     console.log('submitGridSpecs() triggered');
     event.preventDefault();
@@ -103,49 +55,94 @@ function submitGridSpecs() {
         rows: $('#gridRows').val(),
         horizontal: $('#horizontalGauge').val(),
         vertical: $('#verticalGauge').val()
-
-        // same as:
-        // sts: $('#gridStitches').val(),
-        // rows: document.getElementById('gridRows').value,
     };
+
     console.log("Grid: ", Grid);
-
-
-    // // jquery method to get value of user inputs 1
-    // var sts = $('#gridStitches').val();
-    // console.log("sts: ", sts); // worked!
-    // var rows = $('#gridRows').val();
-    // console.log("rows: ", rows);
-    // var horizontal = $('#horizontalGauge').val();
-    // console.log("horizontal: ", horizontal);
-    // var vertical = $('#verticalGauge').val();
-    // console.log("vertical: ", vertical);
-
-    // // jQuery method to get values of user input 2
-    // var sts = $('#gridStitches').attr('value');
-    // console.log("sts: ", sts); // no worky :( -- index.html input elements have no 'value' attribute...
-    // var rows = $('#gridRows').attr('value');
-    // var horizontal = $('#horizontalGauge').attr('value');
-    // var vertical = $('#verticalGauge').attr('value');
-
-    // // straight js  method to get values of user input
-    // var sts = document.getElementById('gridStitches').value;
-    // console.log("sts: ", sts); // worked!
-
 
     newGrid(Grid); // must be placed after var assignments
 }
 
-// uses captured data and appends to DOM
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+//                                                                                  //
+//                     Function to Append Custom Grid to DOM                        //
+//                                                                                  //
+//////////////////////////////////////////////////////////////////////////////////////
 function newGrid(Grid) {
     console.log('newGrid() triggered');
     console.log("newGrid() sts: ", Grid.sts);
     // draw
     for (i = 1; i <= Grid.sts; i++) {
-        $('#gridCanvas').append("<div class='pixel' id='pixel" + i + "' onclick='logPixel(this)'>" + i + "</div>");
+        $('#gridCanvas').append("<div class='pixel' id='pixel" + i + "' onclick='drawColor(this)'></div>");
         console.log('div created');
     }
     //compare div px to container width and see if you can set col x rows that way?
+}
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+//                                                                                  //
+//                Function to Choose Color with which to Draw                       //
+//                                                                                  //
+//////////////////////////////////////////////////////////////////////////////////////
+function pickColor(color) {
+    // check if a color has been selected, if not then use black
+    if (color == "black") {
+        console.log("color black was selected");
+        pickedColor = "rgb(0, 0, 0)";
+        console.log("new pickedColor: ", pickedColor);
+
+    } else if (color == "red") {
+        console.log("color red selected");
+        pickedColor = 'rgb(255, 0, 0)';
+        console.log("new pickedColor: ", pickedColor);
+
+    } else if (color == "white") {
+        console.log("color white selected");
+        pickedColor = "rgb(255, 255, 255)";
+        console.log("new pickedColor: ", pickedColor);
+
+    } else {
+        pickedColor = "rgb(0, 0, 0)";
+    }
+    return pickedColor;
+}
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+//                                                                                  //
+//                Function to Color BG Color of Individual Divs                     //
+//                                                                                  //
+//////////////////////////////////////////////////////////////////////////////////////
+function drawColor(pixel) {
+    console.log("drawColor() ready for action");
+    var color = $('.pixel').css('backgroundColor');
+    var id = pixel.id;
+
+    console.log("color: ", color);
+    console.log("pixel id: ", id);
+    console.log("pickedColor in drawColor: ", pickedColor);
+
+    if (pickedColor == "rgb(255, 255, 255)") {
+        console.log("drawing in color white");
+        $(pixel).css('background-color', 'rgb(255, 255, 255)');
+    } else if (pickedColor == "rgb(0, 0, 0)") {
+        console.log("drawing in color black");
+        $(pixel).css('background-color', 'rgb(0, 0, 0)');
+
+    } else if (pickedColor == "rgb(255, 0, 0)") {
+        console.log("drawing in color red");
+        // console.log("this: ", this); // no bueno
+        $(pixel).css('background-color', 'rgb(255, 0, 0)');
+    }
+
+
 }
 
 
