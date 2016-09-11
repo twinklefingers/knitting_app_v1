@@ -41,7 +41,7 @@ canvas {
 .pixelCol {
     float: left;
     display: inline-block;
-    border: 1px solid yellow;
+    /*border: 1px solid yellow;*/
 }
 
 .pixel {
@@ -77,8 +77,10 @@ canvas {
 }
 
 #gridCanvas {
-    width: 600px;
-    height: 190px;
+    /*width: 600px;height: 190px;
+*/
+    position: absolute;
+    z-index: -1;
     overflow: auto;
     /*white-space: nowrap;*/
     border: 3px solid magenta;
@@ -124,5 +126,3 @@ canvas {
     white-space: nowrap;
     border: 3px solid magenta;
 }*/
-
-*/
