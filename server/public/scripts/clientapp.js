@@ -13,19 +13,18 @@ $(document).ready(function() {
     // $('#dataTable').on("click", ".update", updateData);
 }); // end doc ready
 
-function mousedown() {
-    $("#gridCanvas").children().mousedown(function() {
-        $(this).css("background-color: ", pickedColor);
-        console.log("mousedown activated!!")
-    });
-}
+var mousingDown = false;
+
+
+
+
 //////////////////////////////////////////////////////////////////////////////////////
 //                                                                                  //
 //                              Global Variables                                    //
 //                                                                                  //
 //////////////////////////////////////////////////////////////////////////////////////
 var pickedColor = "rgb(0, 0, 0)";
-var gridCanvas = $('#gridCanvas');
+// var gridCanvas = $('#gridCanvas');
 
 
 
@@ -36,7 +35,7 @@ var gridCanvas = $('#gridCanvas');
 //                                                                                  //
 //////////////////////////////////////////////////////////////////////////////////////
 function toggleOptions() {
-    $('#chooseGrid').toggle();
+    $('#chooseGrid').slideToggle();
     console.log('toggleOptions() triggered');
 
 }
@@ -80,24 +79,22 @@ function newGrid(Grid) {
     // draw
     var i = 1;
     var j = 1;
-    // var newRow = function() {
-    //     $('#gridCanvas').append("<div class='pixelRow' id='pixelRow" + i + "'></div>");
-    // };
+
     // logic to establish # of columns containing 1 div each
     var newCol = function() {
-        $('#gridCanvas').append("<div class='pixelCol' id='pixelCol" + j + "'><div class='pixel' id='pixel" + j + "'onmousedown='drawColor(this)'></div></div>");
+        $('#gridCanvas').append("<div class='pixelCol' id='pixelCol" + j + "'><div class='pixel' id='pixel" + j + "'onclick='drawColor()'></div></div>");
     };
 
     for (j; j <= Grid.sts; j++) {
         newCol();
     }
 
-    // this should add divs to each column per the # of inputted rows
+    // this adds divs to each column per the # of inputted rows
     //each column
     for (c = 1; c <= Grid.sts; c++) {
         //each inputted row
         for (i; i <= Grid.rows - 1; i++) {
-            $('.pixelCol').append("<div class='pixel' id='pixel" + i + "'onmousedown='drawColor(this)'></div>");
+            $('.pixelCol').append("<div class='pixel' id='pixel" + i + "'onclick='drawColor()'></div>");
             console.log('row st created');
         }
     }
@@ -137,43 +134,31 @@ function pickColor(color) {
 //                Function to Color BG Color of Individual Divs                     //
 //                                                                                  //
 //////////////////////////////////////////////////////////////////////////////////////
-function drawColor(pixel) {
-    // console.log("drawColor() ready for action");
-    // var color = $('.pixel').css('backgroundColor');
-    // var id = pixel.id;
-    //
-    // console.log("color: ", color);
-    // console.log("pixel id: ", id);
-    // console.log("pickedColor in drawColor: ", pickedColor);
+function drawColor() {
+    window.addEventListener('mousedown', switchMouseState);
+    window.addEventListener('mouseup', switchMouseState);
 
-    $(pixel).css('background-color', pickedColor); // lol just lol
-    console.log("You colored pixel: ", pixel.id);
+    $('#gridCanvas').mouseover(function() {
+        setPixelColor(event);
+    });
+    $('#gridCanvas').click(function() {
+        setPixelColor(event);
+    });
 
-    // if (pickedColor == "rgb(255, 255, 255)") {
-    //     console.log("drawing in color white");
-    //     $(pixel).css('background-color', 'rgb(255, 255, 255)');
-    //
-    // } else if (pickedColor == "rgb(0, 0, 0)") {
-    //     console.log("drawing in color black");
-    //     $(pixel).css('background-color', 'rgb(0, 0, 0)');
-    //
-    // } else if (pickedColor == "rgb(255, 0, 0)") {
-    //     console.log("drawing in color red");
-    //     // console.log("this: ", this); // no bueno
-    //     $(pixel).css('background-color', 'rgb(255, 0, 0)');
-    // }
+    function switchMouseState(event) {
+        mousingDown = event.type === 'mousedown';
+        console.log("swicthMouseState() activated");
+    }
+
+    function setPixelColor(event) {
+        console.log("setPixelColor() activated");
+        if (event.type === 'click') {
+            event.target.style.backgroundColor = pickedColor;
+        } else if (mousingDown) {
+            event.target.style.backgroundColor = pickedColor;
+        }
+    }
 }
-
-
-//
-// $(".pixel").mousedown(function(id) {
-//     console.log("mousedown function triggered");
-//     //color bg of selected div
-//     var $id = $(this).attr('id');
-//     console.log(this);
-//     var color = $(this).css("background-color");
-//     $id.css().background("red");
-// });
 
 
 
