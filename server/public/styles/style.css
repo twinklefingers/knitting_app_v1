@@ -2,12 +2,19 @@ input {
     width: 60px;
 }
 
-canvas {
+.header {
+    margin: 0;
+    margin-top: 1%;
+    display: inline-block;
+}
+
+
+/*canvas {
     border: 4px dotted black;
     position: absolute;
     margin: 0 auto;
     margin-left: 10px;
-}
+}*/
 
 
 /*
@@ -26,17 +33,40 @@ canvas {
     top: 0;
     right: 0;
     font-size: 50px;
+    background-color: #7dfe90;
 }
 
-.pixelRow {
+.hideResetOnStart {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.hideResetOnStart:hover {
+    cursor: not-allowed;
+}
+
+.resetButton {
+    margin-top: 20px;
+    margin-right: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 50px;
+    background-color: tomato;
+}
+
+
+/*.pixelRow {
     border: 1px solid green;
     width: 25px;
     margin: 0;
     float: left;
     display: inline-block;
-    /*overflow-x: scroll;*/
-    /*height: 30px;*/
-}
+    overflow-x: scroll;
+    height: 30px;
+}*/
 
 .pixelCol {
     float: left;
@@ -62,44 +92,58 @@ canvas {
     border: 1px solid red;
 }
 
+.pickAColor {
+    display: inline;
+}
+
+.yourGrid {
+    display: inline;
+    margin-left: 10px;
+}
+
 .black {
     background-color: rgb(0, 0, 0);
-    color: white;
 }
 
 .red {
     background-color: rgb(255, 0, 0);
 }
 
+.orange {
+    background-color: rgb(255, 175, 0);
+}
+
+.yellow {
+    background-color: rgb(255, 255, 0);
+}
+
+.green {
+    background-color: rgb(0, 255, 0);
+}
+
+.blue {
+    background-color: rgb(0, 0, 255);
+}
+
+.purple {
+    background-color: rgb(138, 43, 226);
+}
+
 .white {
-    border: 1px solid black;
     background-color: rgb(255, 255, 255);
 }
 
-#gridCanvas {
-    /*width: 600px;height: 190px;
-*/
-    position: absolute;
-    z-index: -1;
-    overflow: auto;
-    /*white-space: nowrap;*/
-    border: 3px solid magenta;
+.hideFormOnStart {
+    width: 400px;
+    float: right;
+    margin-top: 30px;
+    z-index: 0;
+    background-color: hsla(0, 0%, 100%, .8);
+    padding: 20px;
+    opacity: 0;
 }
 
-#color {
-    padding: 10px;
-    width: 50px;
-    height: 50px;
-    /*text-align: center;*/
-}
-
-#colorPalette li {
-    list-style-type: none;
-    display: inline-block;
-    /*text-align: center;*/
-}
-
-#chooseGrid {
+.chooseGrid {
     width: 400px;
     float: right;
     margin-top: 30px;
@@ -108,21 +152,41 @@ canvas {
     padding: 20px;
 }
 
-
-/*older code, some to save below*/
-
-
-/*#gridCanvas {
+#gridCanvas {
+    /*width: 600px;height: 190px;
+*/
+    background-image: url("../imgs/Cat.jpg");
+    background-size: cover;
+    position: fixed !important;
     position: absolute;
-    float: left;
-    width: 600px;
-    margin: 20px;
-    overflow-x: scroll;
+    top: 60px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
     z-index: -1;
-    height: 190px;
     overflow: auto;
-    overflow-y: hidden;
-    margin: 0 auto;
-    white-space: nowrap;
+    /*white-space: nowrap;*/
     border: 3px solid magenta;
-}*/
+}
+
+#color {
+    border: 1px solid black;
+    padding: 10px;
+    /*margin: 2px;*/
+    /*display: inline;*/
+    float: left;
+    height: 100%;
+    width: 12.5%;
+    /*text-align: center;*/
+}
+
+#colorPalette {
+    /*list-style-type: none;*/
+    display: inline-block;
+    padding: 0;
+    height: 30px;
+    /*width: 50%;*/
+    /*margin-top: 3px;*/
+    /*text-align: center;*/
+}

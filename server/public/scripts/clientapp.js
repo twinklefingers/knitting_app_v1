@@ -1,10 +1,9 @@
 $(document).ready(function() {
     console.log('jQuery linked'); // this is really important! :P
 
-    $('#chooseGrid').hide();
-
     // //button listeners
     $('.click4grid').on('click', toggleOptions);
+    // $('#submitGrid').on('click', toggleOptions);
 
 
 
@@ -13,19 +12,12 @@ $(document).ready(function() {
     // $('#dataTable').on("click", ".update", updateData);
 }); // end doc ready
 
-var mousingDown = false;
-
-
-
-
 //////////////////////////////////////////////////////////////////////////////////////
 //                                                                                  //
 //                              Global Variables                                    //
 //                                                                                  //
 //////////////////////////////////////////////////////////////////////////////////////
 var pickedColor = "rgb(0, 0, 0)";
-// var gridCanvas = $('#gridCanvas');
-
 
 
 
@@ -35,9 +27,19 @@ var pickedColor = "rgb(0, 0, 0)";
 //                                                                                  //
 //////////////////////////////////////////////////////////////////////////////////////
 function toggleOptions() {
-    $('#chooseGrid').slideToggle();
     console.log('toggleOptions() triggered');
+    $('.hideFormOnStart').removeClass('hideFormOnStart').addClass('chooseGrid');
+    $('.chooseGrid').hide();
+    $('.chooseGrid').slideToggle();
+}
 
+//////////////////////////////////////////////////////////////////////////////////////
+//                                                                                  //
+//                           Function to Reset Page                                 //
+//                                                                                  //
+//////////////////////////////////////////////////////////////////////////////////////
+function refreshPage() {
+    window.location.reload();
 }
 
 
@@ -45,14 +47,14 @@ function toggleOptions() {
 
 //////////////////////////////////////////////////////////////////////////////////////
 //                                                                                  //
-//                   Function to Capture Custom Grid Specs                          //
+//                       Function to Capture Custom Grid Specs                      //
 //                                                                                  //
 //////////////////////////////////////////////////////////////////////////////////////
 function submitGridSpecs() {
     console.log('submitGridSpecs() triggered');
     event.preventDefault();
-    // clear inputs
 
+    // bundle user inputs into a Grid object
     var Grid = {
         sts: $('#gridStitches').val(),
         rows: $('#gridRows').val(),
@@ -60,9 +62,20 @@ function submitGridSpecs() {
         vertical: $('#verticalGauge').val()
     };
 
-    console.log("Grid: ", Grid);
+    // ToggleClass to make Create Grid say Reset
+    $('.hideResetOnStart').removeClass('hideResetOnStart').addClass('resetButton');
+
+    $('input').val(''); // clear inputs
+    $('.chooseGrid').hide(); // hide form
+    $('.click4grid').hide(); // hide the Create Grid Button
+    $('.resetButton').show(); // show Reset Button
+
+    // append user-defined sts & rows to DOM
+    var stats = document.getElementById('yourGrid');
+    stats.innerHTML = stats.innerHTML + ' Stitches: ' + Grid.sts + ' ' + 'Rows: ' + Grid.rows;
 
     newGrid(Grid); // must be placed after var assignments
+    console.log("Grid: ", Grid);
 }
 
 
@@ -81,12 +94,8 @@ function newGrid(Grid) {
     var j = 1;
 
     // logic to establish # of columns containing 1 div each
-    var newCol = function() {
-        $('#gridCanvas').append("<div class='pixelCol' id='pixelCol" + j + "'><div class='pixel' id='pixel" + j + "'onclick='drawColor()'></div></div>");
-    };
-
     for (j; j <= Grid.sts; j++) {
-        newCol();
+        $('#gridCanvas').append("<div class='pixelCol' id='pixelCol" + j + "'><div class='pixel' id='pixel" + j + "'onclick='drawColor()'></div></div>");
     }
 
     // this adds divs to each column per the # of inputted rows
@@ -116,6 +125,26 @@ function pickColor(color) {
         pickedColor = 'rgb(255, 0, 0)';
         console.log("new pickedColor: ", pickedColor);
 
+    } else if (color == "yellow") {
+        pickedColor = 'rgb(255, 255, 0)';
+        console.log("new pickedColor: ", pickedColor);
+
+    } else if (color == "orange") {
+        pickedColor = 'rgb(255, 175, 0)';
+        console.log("new pickedColor: ", pickedColor);
+
+    } else if (color == "green") {
+        pickedColor = "rgb(0, 255, 0)";
+        console.log("new pickedColor: ", pickedColor);
+
+    } else if (color == "blue") {
+        pickedColor = 'rgb(0, 0, 255)';
+        console.log("new pickedColor: ", pickedColor);
+
+    } else if (color == "purple") {
+        pickedColor = "rgb(138, 43, 226)";
+        console.log("new pickedColor: ", pickedColor);
+
     } else if (color == "white") {
         pickedColor = "rgb(255, 255, 255)";
         console.log("new pickedColor: ", pickedColor);
@@ -135,8 +164,17 @@ function pickColor(color) {
 //                                                                                  //
 //////////////////////////////////////////////////////////////////////////////////////
 function drawColor() {
+    var mousingDown = false;
+
     window.addEventListener('mousedown', switchMouseState);
     window.addEventListener('mouseup', switchMouseState);
+
+    // $('pixel').mousedown(function() {
+    //     switchMouseState(event);
+    // });
+    // $('pixel').mouseup(function() {
+    //     switchMouseState(event);
+    // });
 
     $('#gridCanvas').mouseover(function() {
         setPixelColor(event);

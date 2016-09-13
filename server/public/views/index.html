@@ -19,43 +19,55 @@
 </head>
 
 <body>
-    <h1>Draw Within the Dotted Square!</h1>
+    <h1 class="header container-fluid">Knit Mattern Paker<small><em>  Pick A Color:</em></small>
 
-    <!-- <canvas data-processing-sources="../imgs/peacesign.pde"></canvas> -->
-    <!-- <script src="../imgs/sketch.js" type="text/javascript"></script> -->
-    <!-- <script src="../imgs/drawingApp2.js" type="text/javascript"></script> -->
-    <!-- <canvas class="canvas2" data-processing-sources="../imgs/grid1.pde"></canvas> -->
-    <button class="click4grid">Create Grid</button>
-    <form id="chooseGrid">
-
-        <h2>Please Choose Grid Size:</h2>
-        <label for="columns">Stitches:</label>
-        <input type="number" min="1" max="" id="gridStitches" name="gridStitches" />
-        <br />
-        <label for="first_name">Rows:</label>
-        <input type="number" min="1" max="" id="gridRows" name="gridRows" />
-
-        <h2>Gauge:</h2>
-        <label for="horizontal">Horizontal:</label>
-        <input type="number" min="1" max="" id="horizontalGauge" name="horizontalGauge" />
-        <br />
-        <label for="vertical">Vertical:</label>
-        <input type="number" min="1" max="" id="verticalGauge" name="verticalGauge" />
-
-        <button onclick="submitGridSpecs()">Submit</button>
-    </form>
-
-    <ul id="colorPalette">
-        <li id="color" class="black" onclick="pickColor('black')">Black</li>
-        <li id="color" class="red" onclick="pickColor('red')">Red</li>
-        <li id="color" class="white" onclick="pickColor('white')">White</li>
-    </ul>
+    <div id="colorPalette">
+        <div id="color" class="black" onclick="pickColor('black')"></div>
+        <div id="color" class="red" onclick="pickColor('red')"></div>
+        <div id="color" class="orange" onclick="pickColor('orange')"></div>
+        <div id="color" class="yellow" onclick="pickColor('yellow')"></div>
+        <div id="color" class="green" onclick="pickColor('green')"></div>
+        <div id="color" class="blue" onclick="pickColor('blue')"></div>
+        <div id="color" class="purple" onclick="pickColor('purple')"></div>
+        <div id="color" class="white" onclick="pickColor('white')"></div>
+    </div>
+    <small id="yourGrid">Your Grid:</small>
+    </h1>
 
     <div id="gridCanvas">
 
         <!-- grid is appended here based on user input -->
 
     </div>
+
+    <!-- <canvas data-processing-sources="../imgs/peacesign.pde"></canvas> -->
+    <!-- <script src="../imgs/sketch.js" type="text/javascript"></script> -->
+    <!-- <script src="../imgs/drawingApp2.js" type="text/javascript"></script> -->
+    <!-- <canvas class="canvas2" data-processing-sources="../imgs/grid1.pde"></canvas> -->
+    <div id="buttonSpot">
+        <button class="click4grid">Create Grid</button>
+        <button class="hideResetOnStart" onclick="refreshPage()">Reset</button>
+    </div>
+    <form class="hideFormOnStart">
+
+        <h2>Please Choose Grid Size:</h2>
+        <label for="columns">Stitches:</label>
+        <input type="number" min="1" max="200" id="gridStitches" name="gridStitches" />
+        <br />
+        <label for="first_name">Rows:</label>
+        <input type="number" min="1" max="1000" id="gridRows" name="gridRows" />
+
+        <h2>Gauge:</h2>
+        <label for="horizontal">Horizontal:</label>
+        <input type="number" min="1" max="50" id="horizontalGauge" name="horizontalGauge" />
+        <br />
+        <label for="vertical">Vertical:</label>
+        <input type="number" min="1" max="50" id="verticalGauge" name="verticalGauge" />
+
+        <button id="submitGrid" onclick="submitGridSpecs()">Submit</button>
+    </form>
+
+
 
 </body>
 
