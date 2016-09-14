@@ -30,7 +30,7 @@ function toggleOptions() {
     console.log('toggleOptions() triggered');
     $('.hideFormOnStart').removeClass('hideFormOnStart').addClass('chooseGrid');
     $('.chooseGrid').hide();
-    $('.chooseGrid').slideToggle();
+    $('.chooseGrid').slideToggle(1500);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -63,7 +63,7 @@ function submitGridSpecs() {
     };
 
     // ToggleClass to make Create Grid say Reset
-    $('.hideResetOnStart').removeClass('hideResetOnStart').addClass('resetButton');
+    $('.resetButton-hide').removeClass('resetButton-hide').addClass('resetButton');
 
     $('input').val(''); // clear inputs
     $('.chooseGrid').hide(); // hide form
@@ -76,6 +76,9 @@ function submitGridSpecs() {
 
     newGrid(Grid); // must be placed after var assignments
     console.log("Grid: ", Grid);
+
+
+    //if - onclick Submit, input is 200 < # < 1, throw alert
 }
 
 
@@ -192,8 +195,10 @@ function drawColor() {
         console.log("setPixelColor() activated");
         if (event.type === 'click') {
             event.target.style.backgroundColor = pickedColor;
+            console.log("You colored pixel: ", event.target.id);
         } else if (mousingDown) {
             event.target.style.backgroundColor = pickedColor;
+            console.log("You colored pixel: ", event.target.id);
         }
     }
 }

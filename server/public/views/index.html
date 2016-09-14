@@ -19,9 +19,11 @@
 </head>
 
 <body>
-    <h1 class="header container-fluid">Knit Mattern Paker<small><em>  Pick A Color:</em></small>
-
-    <div id="colorPalette">
+    <div id="topBar" class="col-md-4">
+        <h1 class="header container-fluid">Knit Mattern Paker
+    </div>
+    <div class="col-md-4" id="colorPalette">
+      <small><em>  Pick A Color:</em></small>
         <div id="color" class="black" onclick="pickColor('black')"></div>
         <div id="color" class="red" onclick="pickColor('red')"></div>
         <div id="color" class="orange" onclick="pickColor('orange')"></div>
@@ -31,41 +33,42 @@
         <div id="color" class="purple" onclick="pickColor('purple')"></div>
         <div id="color" class="white" onclick="pickColor('white')"></div>
     </div>
-    <small id="yourGrid">Your Grid:</small>
+    <small id="yourGrid">Your Grid>></small>
+    <!-- <div id="buttonSpot"> -->
+        <button class="click4grid">Create Grid</button>
+        <button class="resetButton-hide" onclick="refreshPage()">Reset</button>
+    <!-- </div> -->
     </h1>
 
-    <div id="gridCanvas">
+        <div id="gridCanvas">
 
-        <!-- grid is appended here based on user input -->
+            <!-- grid is appended here based on user input -->
 
-    </div>
+        </div>
 
-    <!-- <canvas data-processing-sources="../imgs/peacesign.pde"></canvas> -->
-    <!-- <script src="../imgs/sketch.js" type="text/javascript"></script> -->
-    <!-- <script src="../imgs/drawingApp2.js" type="text/javascript"></script> -->
-    <!-- <canvas class="canvas2" data-processing-sources="../imgs/grid1.pde"></canvas> -->
-    <div id="buttonSpot">
-        <button class="click4grid">Create Grid</button>
-        <button class="hideResetOnStart" onclick="refreshPage()">Reset</button>
-    </div>
-    <form class="hideFormOnStart">
+        <!-- <canvas data-processing-sources="../imgs/peacesign.pde"></canvas> -->
+        <!-- <script src="../imgs/sketch.js" type="text/javascript"></script> -->
+        <!-- <script src="../imgs/drawingApp2.js" type="text/javascript"></script> -->
+        <!-- <canvas class="canvas2" data-processing-sources="../imgs/grid1.pde"></canvas> -->
 
-        <h2>Please Choose Grid Size:</h2>
-        <label for="columns">Stitches:</label>
-        <input type="number" min="1" max="200" id="gridStitches" name="gridStitches" />
-        <br />
-        <label for="first_name">Rows:</label>
-        <input type="number" min="1" max="1000" id="gridRows" name="gridRows" />
+        <form class="hideFormOnStart">
 
-        <h2>Gauge:</h2>
-        <label for="horizontal">Horizontal:</label>
-        <input type="number" min="1" max="50" id="horizontalGauge" name="horizontalGauge" />
-        <br />
-        <label for="vertical">Vertical:</label>
-        <input type="number" min="1" max="50" id="verticalGauge" name="verticalGauge" />
+            <h2>Grid Size:</h2>
+            <label for="columns">Stitches:</label>
+            <input type="number" min="1" max="200" id="gridStitches" name="gridStitches" />
+            <br />
+            <label for="first_name">Rows:</label>
+            <input type="number" min="1" max="1000" id="gridRows" name="gridRows" />
 
-        <button id="submitGrid" onclick="submitGridSpecs()">Submit</button>
-    </form>
+            <h2>Gauge:</h2>
+            <label for="horizontal">Horizontal:</label>
+            <input type="number" min="1" max="50" id="horizontalGauge" name="horizontalGauge" />
+            <br />
+            <label for="vertical">Vertical:</label>
+            <input type="number" min="1" max="50" id="verticalGauge" name="verticalGauge" />
+
+            <button id="submitGrid" onclick="submitGridSpecs()">Submit</button>
+        </form>
 
 
 
