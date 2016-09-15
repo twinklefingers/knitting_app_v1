@@ -6,7 +6,7 @@ $(document).ready(function() {
     // $('.resetButton').on('click', refreshPage);
 
     // $('body').child('h2').child('resetButton').on('click', refreshPage);
-    $('.chooseGrid').hide();
+    // $('.chooseGrid').hide();
 
 
 
@@ -32,8 +32,22 @@ var pickedColor = "rgb(0, 0, 0)";
 //////////////////////////////////////////////////////////////////////////////////////
 function toggleOptions() {
     console.log('toggleOptions() triggered');
+    $('.chooseGrid-hide').removeClass('chooseGrid-hide').addClass('chooseGrid');
+    $('.chooseGrid').hide();
     $('.chooseGrid').slideToggle(1500);
 }
+
+//////////////////////////////////////////////////////////////////////////////////////
+//                                                                                  //
+//                           Function to Reset Page                                 //
+//                                                                                  //
+// //////////////////////////////////////////////////////////////////////////////////////
+
+function refreshPage() {
+    window.location.reload();
+}
+
+
 
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -53,6 +67,7 @@ function submitGridSpecs() {
         vertical: $('#verticalGauge').val()
     };
 
+
     // ToggleClass to make Create Grid say Reset
     $('.optionsButton').removeClass('optionsButton').addClass('resetButton');
     $('.resetButton').text('Reset').click(function() {
@@ -63,9 +78,11 @@ function submitGridSpecs() {
     $('.chooseGrid').hide(); // hide form
 
     // append user-defined sts & rows to DOM
-    var input = document.getElementById('yourGrid');
+    var stsByRows = document.getElementById('stsByRows');
+    var gauge = document.getElementById('gauge');
     // var input = $('yourGrid').html();
-    input.innerHTML = input.innerHTML + ' Stitches: ' + Grid.sts + ' ' + 'Rows: ' + Grid.rows;
+    stsByRows.innerHTML = stsByRows.innerHTML + Grid.sts + ' x ' + Grid.rows;
+    gauge.innerHTML = gauge.innerHTML + Grid.horizontal + ' x ' + Grid.vertical;
 
     newGrid(Grid); // must be placed after var assignments
     console.log("Grid: ", Grid);

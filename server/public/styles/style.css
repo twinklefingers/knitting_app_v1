@@ -1,4 +1,190 @@
 input {
+    width: 60px;
+}
+
+.black {
+    background-color: rgb(0, 0, 0);
+}
+
+.red {
+    background-color: rgb(255, 0, 0);
+}
+
+.orange {
+    background-color: rgb(255, 175, 0);
+}
+
+.yellow {
+    background-color: rgb(255, 255, 0);
+}
+
+.green {
+    background-color: rgb(0, 255, 0);
+}
+
+.blue {
+    background-color: rgb(0, 0, 255);
+}
+
+.purple {
+    background-color: rgb(138, 43, 226);
+}
+
+.white {
+    background-color: rgb(255, 255, 255);
+}
+
+.header {
+    margin: 0;
+    margin-top: 1%;
+    padding: 5%;
+    display: inline-block;
+    font-size: 200%;
+}
+
+
+/*canvas {
+    border: 4px dotted black;
+    position: absolute;
+    margin: 0 auto;
+    margin-left: 10px;
+}*/
+
+
+/*
+.canvas1 {
+    z-index: 1;
+}
+.canvas2 {
+    z-index: 2;
+}*/
+
+.optionsButton {
+    /*margin-top: 20px;*/
+    /*margin-right: 20px;*/
+    position: absolute;
+    top: 0;
+    right: 0;
+    /*font-size: 50px;*/
+    background-color: #7dfe90;
+}
+
+.resetButton {
+    /*margin-top: 20px;*/
+    /*margin-right: 20px;*/
+    position: absolute;
+    top: 0;
+    right: 0;
+    /*font-size: 50px;*/
+    background-color: tomato;
+}
+
+.pixelCol {
+    float: left;
+    display: inline-block;
+    /*border: 1px solid yellow;*/
+}
+
+.pixel {
+    margin: 0;
+    border: 1px solid black;
+    /*float: top;*/
+    /*vertical-align: top;*/
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    /*display: inline-block;*/
+    /*white-space: nowrap;*/
+    /*position: absolute;*/
+    /*display: grid;*/
+}
+
+.pixel:hover {
+    border: 1px solid red;
+}
+
+
+/*.pickAColor {
+    float: left;
+    display: inline;
+}*/
+
+.chooseGrid-hide {
+    height: 0;
+    width: 0;
+    float: left;
+    opacity: 0;
+}
+
+.chooseGrid {
+    width: 400px;
+    float: right;
+    margin-top: 30px;
+    z-index: 0;
+    background-color: hsla(0, 0%, 100%, .8);
+    padding: 20px;
+}
+
+.userInput {}
+
+#stsByRows {
+    display: block;
+}
+
+#gauge {
+    display: block;
+}
+
+#gridCanvas {
+    background-image: url("../imgs/Cat.jpg");
+    background-size: cover;
+    position: fixed !important;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+    z-index: -1;
+    overflow: auto;
+    /*white-space: nowrap;*/
+    border: 3px solid magenta;
+}
+
+#color {
+    border: 1px solid black;
+    float: left;
+    height: 100%;
+    width: 12.5%;
+}
+
+#colorPalette {
+    display: inline;
+    margin: 1%;
+    margin-top: 1.2%;
+    height: 30px;
+    /*z-index: 0;*/
+}
+
+
+/*
+#yourGrid {
+    display: inline;
+    margin-left: 10px;
+}*/
+
+
+/* ------------------------------------------------------------------------------ */
+
+
+/*                                Media Query                                     */
+
+
+/* ------------------------------------------------------------------------------ */
+
+
+/*
+input {
     width: 20%;
 }
 
@@ -36,60 +222,6 @@ input {
     font-size: 300%;
 }
 
-.pixelCol {
-    float: left;
-    display: inline-block;
-}
-
-.pixel {
-    margin: 0;
-    border: thin solid black;
-    height: 25px;
-    width: 25px;
-    background-color: white;
-}
-
-.pixel:hover {
-    border: thin solid red;
-}
-
-.black {
-    background-color: rgb(0, 0, 0);
-}
-
-.red {
-    background-color: rgb(255, 0, 0);
-}
-
-.orange {
-    background-color: rgb(255, 175, 0);
-}
-
-.yellow {
-    background-color: rgb(255, 255, 0);
-}
-
-.green {
-    background-color: rgb(0, 255, 0);
-}
-
-.blue {
-    background-color: rgb(0, 0, 255);
-}
-
-.purple {
-    background-color: rgb(138, 43, 226);
-}
-
-.white {
-    background-color: rgb(255, 255, 255);
-}
-
-.chooseGrid-hide {
-    float: left;
-    opacity: 0;
-}
-
 .chooseGrid {
     height: 40%;
     width: 60%;
@@ -123,19 +255,6 @@ input {
     bottom: 0;
 }
 
-#yourGrid {
-    height: 5%;
-    width: 100%;
-    position: absolute;
-    margin: 0 auto;
-    bottom: 0;
-    z-index: 0;
-    border: medium solid green;
-    background-color: white;
-    font-size: 300%;
-    text-align: center;
-}
-
 #gridCanvas {
     background-image: url("../imgs/Cat.jpg");
     background-size: cover;
@@ -161,3 +280,19 @@ input {
     height: 60px;
     padding-top: .5%;
 }
+
+#yourGrid {
+    height: 5%;
+    width: 100%;
+    position: absolute;
+    margin: 0 auto;
+    bottom: 0;
+    z-index: 0;
+    border: medium solid green;
+    background-color: white;
+    font-size: 300%;
+    text-align: center;
+}
+*/
+
+*/

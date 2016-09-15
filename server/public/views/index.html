@@ -19,11 +19,11 @@
 </head>
 
 <body>
-    <div>
-        <h1 class="header">Knit Mattern Paker
+    <div class="col-md-3">
+        <h1 class="header">Knit Mattern Paker</h1>
     </div>
     <div class="col-md-4" id="colorPalette">
-      <small class="pickAColor"><em>  Pick A Color:</em></small>
+        <!-- <small class="pickAColor"><em>  Pick A Color:</em></small> -->
         <div id="color" class="black" onclick="pickColor('black')"> </div>
         <div id="color" class="red" onclick="pickColor('red')"> </div>
         <div id="color" class="orange" onclick="pickColor('orange')"> </div>
@@ -33,42 +33,41 @@
         <div id="color" class="purple" onclick="pickColor('purple')"> </div>
         <div id="color" class="white" onclick="pickColor('white')"> </div>
     </div>
-    <small id="yourGrid">Your Grid:</small>
-    <!-- <div id="buttonSpot"> -->
-        <button class="optionsButton">Create Grid</button>
-        <!-- this button could be both "create grid" and "reset" with addClass/removeClass -->
-        <!-- <button class="resetButton-hide" onclick="refreshPage()">Reset</button> -->
-    <!-- </div> -->
-    </h1>
 
-        <div id="gridCanvas">
+    <!-- <p id="yourGrid">Your Grid:</p> -->
+    <p id="stsByRows" class="userInput">Stitches/Rows: </p>
+    <p id="gauge" class="userInput">Gauge: </p>
 
-            <!-- grid is appended here based on user input -->
+    <button class="optionsButton">Create Grid</button>
 
-        </div>
+    <div id="gridCanvas">
 
-        <!-- <canvas data-processing-sources="../imgs/peacesign.pde"></canvas> -->
-        <!-- <script src="../imgs/sketch.js" type="text/javascript"></script> -->
-        <!-- <script src="../imgs/drawingApp2.js" type="text/javascript"></script> -->
-        <!-- <canvas class="canvas2" data-processing-sources="../imgs/grid1.pde"></canvas> -->
+        <!-- grid is appended here based on user input -->
 
-        <form class="chooseGrid">
-            <h2>Grid Size:</h2>
-            <label for="columns">Stitches:</label>
-            <input type="number" min="1" max="200" id="gridStitches" name="gridStitches" />
-            <br />
-            <label for="first_name">Rows:</label>
-            <input type="number" min="1" max="1000" id="gridRows" name="gridRows" />
+    </div>
 
-            <h2>Gauge:</h2>
-            <label for="horizontal">Horizontal:</label>
-            <input type="number" min="1" max="50" id="horizontalGauge" name="horizontalGauge" />
-            <br />
-            <label for="vertical">Vertical:</label>
-            <input type="number" min="1" max="50" id="verticalGauge" name="verticalGauge" />
+    <!-- <canvas data-processing-sources="../imgs/peacesign.pde"></canvas> -->
+    <!-- <script src="../imgs/sketch.js" type="text/javascript"></script> -->
+    <!-- <script src="../imgs/drawingApp2.js" type="text/javascript"></script> -->
+    <!-- <canvas class="canvas2" data-processing-sources="../imgs/grid1.pde"></canvas> -->
 
-            <button id="submitGrid" onclick="submitGridSpecs()">Submit</button>
-        </form>
+    <form class="chooseGrid-hide">
+        <h2>Grid Size:</h2>
+        <label for="columns">Stitches:</label>
+        <input type="number" min="1" max="200" id="gridStitches" name="gridStitches" />
+        <br />
+        <label for="first_name">Rows:</label>
+        <input type="number" min="1" max="1000" id="gridRows" name="gridRows" />
+
+        <h2>Gauge:</h2>
+        <label for="horizontal">Horizontal:</label>
+        <input type="number" min="1" max="50" id="horizontalGauge" name="horizontalGauge" />
+        <br />
+        <label for="vertical">Vertical:</label>
+        <input type="number" min="1" max="50" id="verticalGauge" name="verticalGauge" />
+
+        <button id="submitGrid" onclick="submitGridSpecs()">Submit</button>
+    </form>
 
 
 
