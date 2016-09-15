@@ -2,8 +2,12 @@ $(document).ready(function() {
     console.log('jQuery linked'); // this is really important! :P
 
     // //button listeners
-    $('.click4grid').on('click', toggleOptions);
-    // $('#submitGrid').on('click', toggleOptions);
+    $('.optionsButton').on('click', toggleOptions);
+    // $('.resetButton').on('click', refreshPage);
+
+    // $('body').child('h2').child('resetButton').on('click', refreshPage);
+    $('.chooseGrid').hide();
+
 
 
 
@@ -28,21 +32,8 @@ var pickedColor = "rgb(0, 0, 0)";
 //////////////////////////////////////////////////////////////////////////////////////
 function toggleOptions() {
     console.log('toggleOptions() triggered');
-    $('.hideFormOnStart').removeClass('hideFormOnStart').addClass('chooseGrid');
-    $('.chooseGrid').hide();
     $('.chooseGrid').slideToggle(1500);
 }
-
-//////////////////////////////////////////////////////////////////////////////////////
-//                                                                                  //
-//                           Function to Reset Page                                 //
-//                                                                                  //
-//////////////////////////////////////////////////////////////////////////////////////
-function refreshPage() {
-    window.location.reload();
-}
-
-
 
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -63,16 +54,18 @@ function submitGridSpecs() {
     };
 
     // ToggleClass to make Create Grid say Reset
-    $('.resetButton-hide').removeClass('resetButton-hide').addClass('resetButton');
+    $('.optionsButton').removeClass('optionsButton').addClass('resetButton');
+    $('.resetButton').text('Reset').click(function() {
+        window.location.reload();
+    });
 
     $('input').val(''); // clear inputs
     $('.chooseGrid').hide(); // hide form
-    $('.click4grid').hide(); // hide the Create Grid Button
-    $('.resetButton').show(); // show Reset Button
 
     // append user-defined sts & rows to DOM
-    var stats = document.getElementById('yourGrid');
-    stats.innerHTML = stats.innerHTML + ' Stitches: ' + Grid.sts + ' ' + 'Rows: ' + Grid.rows;
+    var input = document.getElementById('yourGrid');
+    // var input = $('yourGrid').html();
+    input.innerHTML = input.innerHTML + ' Stitches: ' + Grid.sts + ' ' + 'Rows: ' + Grid.rows;
 
     newGrid(Grid); // must be placed after var assignments
     console.log("Grid: ", Grid);
