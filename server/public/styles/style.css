@@ -182,117 +182,103 @@ input {
 
 /* ------------------------------------------------------------------------------ */
 
-
-/*
-input {
-    width: 20%;
+@media only screen and (max-width: 768px) {
+    input {
+        width: 20%;
+    }
+    .header {
+        margin: 0;
+        display: inline-block;
+        width: 100%;
+        padding: 0;
+        text-align: center;
+        font-size: 500%;
+        height: 10%;
+    }
+    .optionsButton {
+        position: absolute;
+        margin: auto;
+        right: 0;
+        left: 0;
+        bottom: 15%;
+        height: 5%;
+        width: 90%;
+        background-color: #7dfe90;
+        font-size: 300%;
+    }
+    .resetButton {
+        position: absolute;
+        margin: auto;
+        right: 0;
+        left: 0;
+        bottom: 15%;
+        height: 5%;
+        width: 90%;
+        background-color: tomato;
+        font-size: 300%;
+    }
+    .chooseGrid {
+        height: 40%;
+        width: 60%;
+        margin: auto;
+        padding: 7%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+        background-color: hsla(0, 0%, 100%, .8);
+        text-align: center;
+        font-size: 300%;
+    }
+    .chooseGrid h2 {
+        font-size: 150%;
+        text-decoration: underline;
+    }
+    .chooseGrid button {
+        display: block;
+        margin: auto;
+        border: thin solid purple;
+    }
+    .pickAColor {
+        visibility: hidden;
+        position: absolute;
+        bottom: 0;
+    }
+    #gridCanvas {
+        background-image: url("../imgs/Cat.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 90%;
+        width: 100%;
+        position: absolute;
+        bottom: 10%;
+        top: 10%;
+        padding: 1%;
+        z-index: -1;
+        border: medium solid magenta;
+    }
+    #color {
+        border: thin solid black;
+        float: left;
+        height: 100%;
+        width: 12.5%;
+    }
+    #colorPalette {
+        height: 60px;
+        padding-top: .5%;
+    }
+    #yourGrid {
+        height: 5%;
+        width: 100%;
+        position: absolute;
+        margin: 0 auto;
+        bottom: 0;
+        z-index: 0;
+        border: medium solid green;
+        background-color: white;
+        font-size: 300%;
+        text-align: center;
+    }
 }
-
-.header {
-    margin: 0;
-    display: inline-block;
-    width: 100%;
-    padding: 0;
-    text-align: center;
-    font-size: 500%;
-    height: 10%;
-}
-
-.optionsButton {
-    position: absolute;
-    margin: auto;
-    right: 0;
-    left: 0;
-    bottom: 15%;
-    height: 5%;
-    width: 90%;
-    background-color: #7dfe90;
-    font-size: 300%;
-}
-
-.resetButton {
-    position: absolute;
-    margin: auto;
-    right: 0;
-    left: 0;
-    bottom: 15%;
-    height: 5%;
-    width: 90%;
-    background-color: tomato;
-    font-size: 300%;
-}
-
-.chooseGrid {
-    height: 40%;
-    width: 60%;
-    margin: auto;
-    padding: 7%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 0;
-    background-color: hsla(0, 0%, 100%, .8);
-    text-align: center;
-    font-size: 300%;
-}
-
-.chooseGrid h2 {
-    font-size: 150%;
-    text-decoration: underline;
-}
-
-.chooseGrid button {
-    display: block;
-    margin: auto;
-    border: thin solid purple;
-}
-
-.pickAColor {
-    visibility: hidden;
-    position: absolute;
-    bottom: 0;
-}
-
-#gridCanvas {
-    background-image: url("../imgs/Cat.jpg");
-    background-size: cover;
-    background-position: center;
-    height: 90%;
-    width: 100%;
-    position: absolute;
-    bottom: 10%;
-    top: 10%;
-    padding: 1%;
-    z-index: -1;
-    border: medium solid magenta;
-}
-
-#color {
-    border: thin solid black;
-    float: left;
-    height: 100%;
-    width: 12.5%;
-}
-
-#colorPalette {
-    height: 60px;
-    padding-top: .5%;
-}
-
-#yourGrid {
-    height: 5%;
-    width: 100%;
-    position: absolute;
-    margin: 0 auto;
-    bottom: 0;
-    z-index: 0;
-    border: medium solid green;
-    background-color: white;
-    font-size: 300%;
-    text-align: center;
-}
-*/
-
-*/
