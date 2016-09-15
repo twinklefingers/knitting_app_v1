@@ -1,170 +1,150 @@
-input {
-    width: 60px;
-}
-
-.black {
-    background-color: rgb(0, 0, 0);
-}
-
-.red {
-    background-color: rgb(255, 0, 0);
-}
-
-.orange {
-    background-color: rgb(255, 175, 0);
-}
-
-.yellow {
-    background-color: rgb(255, 255, 0);
-}
-
-.green {
-    background-color: rgb(0, 255, 0);
-}
-
-.blue {
-    background-color: rgb(0, 0, 255);
-}
-
-.purple {
-    background-color: rgb(138, 43, 226);
-}
-
-.white {
-    background-color: rgb(255, 255, 255);
-}
-
-.header {
-    margin: 0;
-    margin-top: 1%;
-    padding: 5%;
-    display: inline-block;
-    font-size: 200%;
-}
+/*works up to 1199px wide before title is too big*/
 
 
-/*canvas {
+/*works down to 992px wide before colorPalette breaks*/
+
+@media (min-width: 768px) {
+    input {
+        width: 60px;
+    }
+    .black {
+        background-color: rgb(0, 0, 0);
+    }
+    .red {
+        background-color: rgb(255, 0, 0);
+    }
+    .orange {
+        background-color: rgb(255, 175, 0);
+    }
+    .yellow {
+        background-color: rgb(255, 255, 0);
+    }
+    .green {
+        background-color: rgb(0, 255, 0);
+    }
+    .blue {
+        background-color: rgb(0, 0, 255);
+    }
+    .purple {
+        background-color: rgb(138, 43, 226);
+    }
+    .white {
+        background-color: rgb(255, 255, 255);
+    }
+    .header {
+        margin: 0;
+        margin-top: 1%;
+        padding: 5%;
+        display: inline-block;
+        font-size: 200%;
+        width: 100%;
+    }
+    /*canvas {
     border: 4px dotted black;
     position: absolute;
     margin: 0 auto;
     margin-left: 10px;
 }*/
-
-
-/*
+    /*
 .canvas1 {
     z-index: 1;
 }
 .canvas2 {
     z-index: 2;
 }*/
-
-.optionsButton {
-    /*margin-top: 20px;*/
-    /*margin-right: 20px;*/
-    position: absolute;
-    top: 0;
-    right: 0;
-    /*font-size: 50px;*/
-    background-color: #7dfe90;
-}
-
-.resetButton {
-    /*margin-top: 20px;*/
-    /*margin-right: 20px;*/
-    position: absolute;
-    top: 0;
-    right: 0;
-    /*font-size: 50px;*/
-    background-color: tomato;
-}
-
-.pixelCol {
-    float: left;
-    display: inline-block;
-    /*border: 1px solid yellow;*/
-}
-
-.pixel {
-    margin: 0;
-    border: 1px solid black;
-    /*float: top;*/
-    /*vertical-align: top;*/
-    height: 25px;
-    width: 25px;
-    background-color: white;
-    /*display: inline-block;*/
-    /*white-space: nowrap;*/
-    /*position: absolute;*/
-    /*display: grid;*/
-}
-
-.pixel:hover {
-    border: 1px solid red;
-}
-
-
-/*.pickAColor {
+    .optionsButton {
+        /*margin-top: 20px;*/
+        /*margin-right: 20px;*/
+        position: absolute;
+        top: 0;
+        right: 0;
+        /*font-size: 50px;*/
+        background-color: #7dfe90;
+    }
+    .resetButton {
+        /*margin-top: 20px;*/
+        /*margin-right: 20px;*/
+        position: absolute;
+        top: 0;
+        right: 0;
+        /*font-size: 50px;*/
+        background-color: tomato;
+    }
+    .pixelCol {
+        float: left;
+        display: inline-block;
+        /*border: 1px solid yellow;*/
+    }
+    .pixel {
+        margin: 0;
+        border: 1px solid black;
+        /*float: top;*/
+        /*vertical-align: top;*/
+        height: 25px;
+        width: 25px;
+        background-color: white;
+        /*display: inline-block;*/
+        /*white-space: nowrap;*/
+        /*position: absolute;*/
+        /*display: grid;*/
+    }
+    .pixel:hover {
+        border: 1px solid red;
+    }
+    /*.pickAColor {
     float: left;
     display: inline;
 }*/
-
-.chooseGrid-hide {
-    height: 0;
-    width: 0;
-    float: left;
-    opacity: 0;
-}
-
-.chooseGrid {
-    width: 400px;
-    float: right;
-    margin-top: 30px;
-    z-index: 0;
-    background-color: hsla(0, 0%, 100%, .8);
-    padding: 20px;
-}
-
-.userInput {}
-
-#stsByRows {
-    display: block;
-}
-
-#gauge {
-    display: block;
-}
-
-#gridCanvas {
-    background-image: url("../imgs/Cat.jpg");
-    background-size: cover;
-    background-position: center;
-    position: fixed !important;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 20px;
-    z-index: -1;
-    overflow: auto;
-    /*white-space: nowrap;*/
-    border: 3px solid magenta;
-}
-
-#color {
-    border: 1px solid black;
-    float: left;
-    height: 100%;
-    width: 12.5%;
-}
-
-#colorPalette {
-    display: inline;
-    margin: 1%;
-    margin-top: 1.2%;
-    height: 30px;
-    /*z-index: 0;*/
+    .chooseGrid-hide {
+        height: 0;
+        width: 0;
+        float: left;
+        opacity: 0;
+    }
+    .chooseGrid {
+        width: 400px;
+        float: right;
+        margin-top: 30px;
+        z-index: 0;
+        background-color: hsla(0, 0%, 100%, .8);
+        padding: 20px;
+    }
+    .userInput {}
+    #stsByRows {
+        display: block;
+    }
+    #gauge {
+        display: block;
+    }
+    #gridCanvas {
+        background-image: url("../imgs/Cat.jpg");
+        background-size: cover;
+        background-position: center;
+        position: fixed !important;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 20px;
+        z-index: -1;
+        overflow: auto;
+        /*white-space: nowrap;*/
+        border: 3px solid magenta;
+    }
+    #color {
+        border: 1px solid black;
+        float: left;
+        height: 100%;
+        width: 12.5%;
+    }
+    #colorPalette {
+        display: inline;
+        margin: 1%;
+        margin-top: 1.2%;
+        height: 30px;
+        /*z-index: 0;*/
+    }
 }
 
 
@@ -174,22 +154,37 @@ input {
     margin-left: 10px;
 }*/
 
-
-/* ------------------------------------------------------------------------------ */
-
-
-/*                                Media Query                                     */
-
-
-/* ------------------------------------------------------------------------------ */
-
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     input {
         width: 20%;
     }
+    .black {
+        background-color: rgb(0, 0, 0);
+    }
+    .red {
+        background-color: rgb(255, 0, 0);
+    }
+    .orange {
+        background-color: rgb(255, 175, 0);
+    }
+    .yellow {
+        background-color: rgb(255, 255, 0);
+    }
+    .green {
+        background-color: rgb(0, 255, 0);
+    }
+    .blue {
+        background-color: rgb(0, 0, 255);
+    }
+    .purple {
+        background-color: rgb(138, 43, 226);
+    }
+    .white {
+        background-color: rgb(255, 255, 255);
+    }
     .header {
-        /*margin: 0;*/
-        /*display: inline-block;*/
+        margin: 0;
+        display: inline-block;
         width: 100%;
         padding: 0;
         text-align: center;
@@ -199,24 +194,30 @@ input {
     .optionsButton {
         height: 5%;
         width: 90%;
-        /*position: absolute;*/
+        position: absolute;
         margin: auto auto 15%;
-        /*right: 0;*/
+        right: 0;
         left: 0;
         bottom: 0;
-        /*background-color: #7dfe90;*/
+        background-color: #7dfe90;
         font-size: 150%;
     }
     .resetButton {
         height: 5%;
         width: 90%;
-        /*position: absolute;*/
+        position: absolute;
         margin: auto auto 15%;
-        /*right: 0;*/
+        right: 0;
         left: 0;
         bottom: 0;
-        /*background-color: tomato;*/
+        background-color: tomato;
         font-size: 150%;
+    }
+    .chooseGrid-hide {
+        height: 0;
+        width: 0;
+        float: left;
+        opacity: 0;
     }
     .chooseGrid {
         height: 40%;
@@ -228,8 +229,8 @@ input {
         right: 0;
         bottom: 0;
         left: 0;
-        /*z-index: 0;*/
-        /*background-color: hsla(0, 0%, 100%, .8);*/
+        z-index: 0;
+        background-color: hsla(0, 0%, 100%, .8);
         text-align: center;
         font-size: 100%;
     }
@@ -243,29 +244,29 @@ input {
         border: thin solid purple;
     }
     /*.pickAColor {
-        visibility: hidden;
-        position: absolute;
-        bottom: 0;
-    }*/
+    visibility: hidden;
+    position: absolute;
+    bottom: 0;
+}*/
     #gridCanvas {
-        /*background-image: url("../imgs/Cat.jpg");*/
-        /*background-size: cover;*/
-        /*background-position: center;*/
+        background-image: url("../imgs/Cat.jpg");
+        background-size: cover;
+        background-position: center;
         height: 90%;
         width: 100%;
-        /*position: absolute;*/
+        position: absolute;
         bottom: 10%;
         top: 20%;
         padding: 1%;
-        /*z-index: -1;*/
-        /*border: medium solid magenta;*/
+        z-index: -1;
+        border: medium solid magenta;
     }
-    /*#color {
+    #color {
         border: thin solid black;
         float: left;
         height: 100%;
         width: 12.5%;
-    }*/
+    }
     #colorPalette {
         height: 100px;
         padding-top: .5%;
@@ -273,7 +274,7 @@ input {
         width: 100%;
     }
     #yourGrid {
-        /*height: 5%;*/
+        height: 5%;
         width: 100%;
         position: absolute;
         margin: 0 auto;
